@@ -1,0 +1,233 @@
+<html>
+<head>
+<style>
+	body
+	{
+		background-image:url("kerala.jpg");
+		background-size: cover;
+
+	}
+	  .three {
+        margin-left: 80px;
+    }
+    .three:hover {
+        animation: blinker 0.1s linear infinite;
+    }
+    @keyframes blinker {
+        50% { opacity: 0; }
+    }
+    ul {
+        list-style-type: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        float: right;
+    }
+    li a {
+        display: block;
+        color: black;
+        font-family: Verdana;
+        text-align: center;
+        text-decoration: none;
+        padding: 12px 28px;
+    }
+    li a:hover {
+        color: white;
+    }
+.one {
+        color: white;
+        font-family: Verdana;
+        text-align: center;
+        margin-top: 2cm;
+        margin-bottom: 0;
+        margin-right: 60cm;
+        margin-left: 2cm;
+        font-size: 80px;
+    }
+
+    /* Updated song section */
+    .songs {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* move all songs to the right */
+        margin-right: 50px;
+        margin-top: 50px;
+    }
+
+    .song {
+        margin: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* align song and button to the right */
+    }
+
+    .song p {
+        font-size: 20px;
+        margin-left: 20px; /* space between icon and text */
+        margin-right: 0;
+        color: white;
+        font-family: Verdana;
+    }
+
+    ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+  li{
+	float: left;
+}
+
+li a{
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 12px;
+
+}
+
+
+li a:hover{
+	background-color: #111;
+}
+   
+   
+</style>
+
+
+</head>
+
+
+<body>
+
+	<ul>
+			<li><a href="Kerala.html"> Home</a></li>
+			<li><a href="Contact.html"> Contact Information</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="music.html">Music</a></li>
+			
+		</ul>
+<b><div class="one">THE<br>KERALA<br> MUSIC</div></b>
+<div class="songs">
+
+	<img src="play.png" class="play-btn" id="icon1" width="80" height="80" data-song="Illuminati.mp3">
+	<p>Click here to listen-Illuminati</p>
+</div>
+
+<div class="songs">
+
+	<img src="play.png" class="play-btn" id="icon2" width="80" height="80" data-song="Vathilil-Aa-Vathilil.mp3">
+	<p>Click here to listen-Vathilil</p>
+</div>
+<div class="songs">
+
+	<img src="play.png" class="play-btn" id="icon3" width="80" height="80" data-song="Maangalyam-MassTamilan.io.mp3">
+	<p>Click here to listen-Maangalyam</p>
+</div>
+
+<div class="songs">
+
+	<img src="play.png" class="play-btn" id="icon4" width="80" height="80" data-song="Minungum-Minnaminunge.mp3">
+	<p>Click here to listen- Minumgum Minnaminugue</p>
+</div>
+<div class="songs">
+
+	<img src="play.png" class="play-btn" id="icon5" width="80" height="80" data-song="Orukili Erukili.mp3">
+	<p>Click here to listen-Orukili Erukili</p>
+</div>
+
+<div class="songs">
+
+	<img src="play.png" class="play-btn" id="icon6" width="80" height="80" data-song="Entammede Jimikki Kammal.mp3">
+	<p>Click here to listen-Entammede Jimmikki Kammal</p>
+</div>
+
+<div class="songs">
+
+	<img src="play.png" class="play-btn" id="icon1" width="80" height="80" data-song="Uyirin-Naadhane.mp3">
+	<p>Click here to listen-Uyirin Naadhane</p>
+</div>
+
+<div class="songs">
+
+	<img src="play.png" class="play-btn" id="icon1" width="80" height="80" data-song="Malare-Ninne-Kanathirunnal.mp3">
+	<p>Click here to listen-Malare</p>
+</div>
+
+<div class="songs">
+
+	<img src="play.png" class="play-btn" id="icon1" width="80" height="80" data-song="syama sundara kera kedara.mp3">
+	<p>Click here to listen-shyamasundara kera kera</p>
+</div>
+	
+
+	
+<audio id="MySong">
+</audio>
+</body>
+
+<script>
+	const audio = document.getElementById('MySong');
+	const buttons = document.querySelectorAll(".play-btn");
+
+	let currentButton = null;
+	let currentSong="";
+
+	buttons.forEach(button=>{
+		button.addEventListener("click", () =>{ 
+			const song = button.getAttribute("data-song");
+
+			// If this button is already playing
+			if (currentSong=== song && !audio.paused){
+				audio.pause();
+				button.src = "play.png";
+				return;
+			}
+
+			// Pause previous song
+			if (currentSong===song&&audio.paused){
+				audio.play();
+				button.src="pause.png"
+				return;
+
+			}
+			if (currentButton)
+			{
+				currentButton.src ="play.png";
+			}
+			
+
+			// Set new song and play
+			audio.src = song;
+			audio.play();
+			button.src = "pause.png";
+			currentButton = button;
+			currentSong=song;
+		});
+	});
+
+	// Reset play icon when song ends
+	audio.addEventListener("ended", () => {
+		if (currentButton) {
+			currentButton.src = "play.png";
+			currentButton = null;
+			currentSong=null;
+		}
+	});
+
+
+
+
+	
+
+
+     </script>
+	 </html>
+	 

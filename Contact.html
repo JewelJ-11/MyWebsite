@@ -1,0 +1,162 @@
+<html>
+<head>
+
+
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family:"Segoe UI", sans-serif;
+	}
+
+	body{
+		height: 100vh;
+		background: linear-gradient(135deg,#667eea,#764ba2);
+		justify-content:center ;
+		align-items: center;
+	}
+
+	/* Glass Card */
+	.container{
+		margin-top: 50px;
+		margin-left: 450px;
+		width: 350px;
+		padding: 38px;
+		border-radius: 15px;
+		backdrop-filter: blur(15px);
+		background: rgba(255,255,255,0.1);
+		box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+		color:white ;
+	}
+
+	/* Title */
+	.container h2{
+		text-align: center;
+		margin-bottom: 20px;
+		letter-spacing: 1px;
+	}
+
+	.input-group{
+		margin-bottom: 18px;
+	}
+
+	.input-group input,
+	.input-group textarea{
+		width: 100%;
+		padding: 12px;
+		border-radius: 45px;
+		border: none;
+		outline: none;
+		background: rgba(255, 255, 255, 0.2);
+		color: white;
+		font-size: 14px;
+	}
+
+	/* Buutton */
+	button{
+		width: 100%;
+		padding: 12px;
+		border-radius: 8px;
+		border:none ;
+		background:#00c6ff ;
+		background: linear-gradient(45deg, #00c6ff, #0072ff);
+		color: white;
+		font-size: 16px;
+		cursor: pointer;
+		transition: 0.3s;
+	}
+
+	button:hover{
+		transform: translateY(-2px);
+		box-shadow: 0 5px 2px rgba(0, 0, 0, 0.3);
+	}
+
+	/* Footer Text */
+	.footer{
+		text-align: center;
+		margin-top: 15px;
+		font-size: 12px;
+		opacity: 0.8s;
+	}
+
+ul{
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+li{
+	float: left;
+}
+
+li a{
+	display: block;
+	color: white;
+	text-align: center; 
+	padding: 14px 16px;
+	text-decoration: none;
+
+}
+
+
+li a:hover{
+	background-color: #111;
+}
+
+</style>
+</head>
+
+<body>
+ 
+	
+
+	<ul>
+			<li><a href="Kerala.html"> Home</a></li>
+			<li><a href="Contact.html"> Contact Information</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="music.html">Music</a></li>
+		
+	</ul>
+
+		<div class ="container">
+			<h2>Contact us</h2>
+
+			<form>
+				<div class="input-group">
+					<input type="text" placeholder="Your Name" required>
+				</div>
+				<div class="input-group">
+					<input type="text" placeholder="Your Email" required>
+				</div>
+				<div class="input-group">
+					<input type="text" placeholder="Your Country" required>
+				</div>
+				<div class="input-group">
+					<input type="text" placeholder="Your Age" required>
+				</div>
+				<div class="input-group">
+					<input type="text" placeholder="Your message" required>
+				</div>
+
+				<button type="sumbit">Send Message</button>
+			</form>
+
+			<div class="footer">
+				I usually reply within 24 hours
+			</div>
+		</div>
+
+
+
+	
+
+	
+
+
+
+
+</body>
+</html>
